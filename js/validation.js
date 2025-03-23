@@ -1,52 +1,35 @@
-// Modal Popup Functionality
-function openModal(modalId) {
-    const modal = document.getElementById(modalId);
-    modal.style.display = "block";
-}
+function validateLoginForm() {
+    var email = document.forms["loginForm"]["email"].value;
+    var password = document.forms["loginForm"]["password"].value;
 
-function closeModal(modalId) {
-    const modal = document.getElementById(modalId);
-    modal.style.display = "none";
-}
-
-// Form Validation - Contact Form
-function validateForm() {
-    const name = document.forms["contactForm"]["name"].value;
-    const email = document.forms["contactForm"]["email"].value;
-    const message = document.forms["contactForm"]["message"].value;
-
-    if (name === "" || email === "" || message === "") {
-        alert("All fields must be filled out.");
+    if (email == "") {
+        alert("Email is required");
         return false;
     }
+
+    if (password == "") {
+        alert("Password is required");
+        return false;
+    }
+
+    var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    if (!emailPattern.test(email)) {
+        alert("Please enter a valid email address.");
+        return false;
+    }
+
     return true;
 }
 
-// Toggle active class for menu links
-const menuLinks = document.querySelectorAll("nav ul li a");
+function validateRegisterForm() {
+    var username = document.forms["registerForm"]["username"].value;
+    var email = document.forms["registerForm"]["email"].value;
+    var password = document.forms["registerForm"]["password"].value;
 
-menuLinks.forEach(link => {
-    link.addEventListener("click", function() {
-        menuLinks.forEach(item => item.classList.remove("active"));
-        this.classList.add("active");
-    });
-});
+    if (username == "" || email == "" || password == "") {
+        alert("All fields are required.");
+        return false;
+    }
 
-// Smooth Scroll on anchor click
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
-});
-
-// Open product modal
-document.querySelectorAll(".product-detail-btn").forEach(btn => {
-    btn.addEventListener("click", function() {
-        const productDetails = this.getAttribute("data-product-details");
-        document.getElementById("productDetails").textContent = productDetails;
-        openModal('productModal');
-    });
-});
+    return true;
+}
