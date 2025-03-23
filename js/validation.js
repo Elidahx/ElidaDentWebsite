@@ -1,40 +1,52 @@
-// Slideshow functionality
-let currentSlide = 0;
-const slides = document.querySelectorAll('.product-slide');
-const totalSlides = slides.length;
+// Modal Popup Functionality
+function openModal(modalId) {
+    const modal = document.getElementById(modalId);
+    modal.style.display = "block";
+}
 
-function showSlide(index) {
-    slides.forEach((slide, i) => {
-        slide.style.display = (i === index) ? 'block' : 'none';
+function closeModal(modalId) {
+    const modal = document.getElementById(modalId);
+    modal.style.display = "none";
+}
+
+// Form Validation - Contact Form
+function validateForm() {
+    const name = document.forms["contactForm"]["name"].value;
+    const email = document.forms["contactForm"]["email"].value;
+    const message = document.forms["contactForm"]["message"].value;
+
+    if (name === "" || email === "" || message === "") {
+        alert("All fields must be filled out.");
+        return false;
+    }
+    return true;
+}
+
+// Toggle active class for menu links
+const menuLinks = document.querySelectorAll("nav ul li a");
+
+menuLinks.forEach(link => {
+    link.addEventListener("click", function() {
+        menuLinks.forEach(item => item.classList.remove("active"));
+        this.classList.add("active");
     });
-}
-
-function nextSlide() {
-    currentSlide = (currentSlide + 1) % totalSlides;
-    showSlide(currentSlide);
-}
-
-function prevSlide() {
-    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-    showSlide(currentSlide);
-}
-
-// Event listeners for next/prev buttons
-document.getElementById('next').addEventListener('click', nextSlide);
-document.getElementById('prev').addEventListener('click', prevSlide);
-
-// Initialize the first slide
-showSlide(currentSlide);
-
-// Contact form validation
-document.getElementById('contact-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    alert('Message sent!');
-    this.reset();
 });
 
-// Menu toggle for mobile
-document.getElementById('menu-toggle').addEventListener('click', function() {
-    let nav = document.querySelector('nav');
-    nav.classList.toggle('open');
+// Smooth Scroll on anchor click
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+
+// Open product modal
+document.querySelectorAll(".product-detail-btn").forEach(btn => {
+    btn.addEventListener("click", function() {
+        const productDetails = this.getAttribute("data-product-details");
+        document.getElementById("productDetails").textContent = productDetails;
+        openModal('productModal');
+    });
 });
