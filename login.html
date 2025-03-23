@@ -5,10 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Elida Dent</title>
     <link rel="stylesheet" href="css/styles.css">
-    <script src="js/validation.js" defer></script>
 </head>
 <body>
     <header>
+        <div class="logo">
+            <img src="https://img.icons8.com/color/48/000000/tooth.png" alt="Logo Elida Dent">
+            <h1>Elida Dent</h1>
+        </div>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -18,21 +21,21 @@
         </nav>
     </header>
 
-    <main>
-        <h1>Login</h1>
-        <form id="login-form" action="#" method="POST" onsubmit="return validateLoginForm()">
-            <label for="username">Username</label>
+    <section class="login">
+        <h2>Kyçuni në Llogarinë Tuaj</h2>
+        <form action="dashboard.html" method="POST">
+            <label for="username">Përdoruesi:</label>
             <input type="text" id="username" name="username" required>
 
-            <label for="password">Password</label>
+            <label for="password">Fjalëkalimi:</label>
             <input type="password" id="password" name="password" required>
 
-            <button type="submit">Login</button>
+            <button type="submit" class="btn">Kyçuni</button>
         </form>
-    </main>
+    </section>
 
     <footer>
-        <p>&copy; 2025 Elida Dent | Të gjitha të drejtat e rezervuara</p>
+        <p>&copy; 2025 Elida Dent | <a href="contact.html">Na Kontaktoni</a></p>
     </footer>
 </body>
 </html>

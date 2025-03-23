@@ -1,34 +1,22 @@
-function validateForm() {
-    let name = document.getElementById("name").value;
-    let email = document.getElementById("email").value;
-    let message = document.getElementById("message").value;
+function validateForm(form) {
+    let isValid = true;
+    let errorMessages = [];
 
-    if (!name || !email || !message) {
-        alert("All fields are required!");
-        return false;
+    // Example validation for required fields
+    if (form.username.value.trim() === "") {
+        errorMessages.push("Përdoruesi është i detyrueshëm.");
+        isValid = false;
     }
-    return true;
-}
 
-function validateLoginForm() {
-    let username = document.getElementById("username").value;
-    let password = document.getElementById("password").value;
-
-    if (!username || !password) {
-        alert("Please fill in both fields.");
-        return false;
+    if (form.password.value.trim() === "") {
+        errorMessages.push("Fjalëkalimi është i detyrueshëm.");
+        isValid = false;
     }
-    return true;
-}
 
-function validateRegisterForm() {
-    let username = document.getElementById("username").value;
-    let email = document.getElementById("email").value;
-    let password = document.getElementById("password").value;
-
-    if (!username || !email || !password) {
-        alert("All fields are required!");
-        return false;
+    // Display error messages
+    if (!isValid) {
+        alert(errorMessages.join("\n"));
     }
-    return true;
+
+    return isValid;
 }

@@ -3,12 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register - Elida Dent</title>
+    <title>Regjistrohu - Elida Dent</title>
     <link rel="stylesheet" href="css/styles.css">
-    <script src="js/validation.js" defer></script>
 </head>
 <body>
     <header>
+        <div class="logo">
+            <img src="https://img.icons8.com/color/48/000000/tooth.png" alt="Logo Elida Dent">
+            <h1>Elida Dent</h1>
+        </div>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -18,24 +21,27 @@
         </nav>
     </header>
 
-    <main>
-        <h1>Register</h1>
-        <form id="register-form" action="#" method="POST" onsubmit="return validateRegisterForm()">
-            <label for="username">Username</label>
-            <input type="text" id="username" name="username" required>
+    <section class="register">
+        <h2>Regjistrohu për Llogari</h2>
+        <form action="login.html" method="POST">
+            <label for="name">Emri:</label>
+            <input type="text" id="name" name="name" required>
 
-            <label for="email">Email</label>
+            <label for="email">Email:</label>
             <input type="email" id="email" name="email" required>
 
-            <label for="password">Password</label>
+            <label for="username">Përdoruesi:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Fjalëkalimi:</label>
             <input type="password" id="password" name="password" required>
 
-            <button type="submit">Register</button>
+            <button type="submit" class="btn">Regjistrohu</button>
         </form>
-    </main>
+    </section>
 
     <footer>
-        <p>&copy; 2025 Elida Dent | Të gjitha të drejtat e rezervuara</p>
+        <p>&copy; 2025 Elida Dent | <a href="contact.html">Na Kontaktoni</a></p>
     </footer>
 </body>
 </html>

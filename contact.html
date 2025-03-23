@@ -3,42 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - Elida Dent</title>
+    <title>Na Kontaktoni - Elida Dent</title>
     <link rel="stylesheet" href="css/styles.css">
-    <script src="js/validation.js" defer></script>
 </head>
 <body>
     <header>
+        <div class="logo">
+            <img src="https://img.icons8.com/color/48/000000/tooth.png" alt="Logo Elida Dent">
+            <h1>Elida Dent</h1>
+        </div>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About Us</a></li>
-                <li><a href="services.html">Services</a></li>
                 <li><a href="products.html">Products</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-                <li><a href="login.html">Login</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <main>
-        <h1>Contact Us</h1>
-        <form id="contact-form" action="#" method="POST" onsubmit="return validateForm()">
-            <label for="name">Name</label>
+    <section class="contact">
+        <h2>Na Kontaktoni</h2>
+        <form action="submit-form.html" method="POST">
+            <label for="name">Emri:</label>
             <input type="text" id="name" name="name" required>
 
-            <label for="email">Email</label>
+            <label for="email">Email:</label>
             <input type="email" id="email" name="email" required>
 
-            <label for="message">Message</label>
+            <label for="message">Mesazhi:</label>
             <textarea id="message" name="message" required></textarea>
 
-            <button type="submit">Submit</button>
+            <button type="submit" class="btn">Dërgo</button>
         </form>
-    </main>
+    </section>
 
     <footer>
-        <p>&copy; 2025 Elida Dent | Të gjitha të drejtat e rezervuara</p>
+        <p>&copy; 2025 Elida Dent | <a href="contact.html">Na Kontaktoni</a></p>
     </footer>
 </body>
 </html>
